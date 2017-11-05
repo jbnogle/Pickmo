@@ -4,7 +4,7 @@ import axios from 'axios';
 
 class App extends Component {
    ledTrigger() {
-      axios.post('https://p77rg9n9za.execute-api.us-west-2.amazonaws.com/stage1/control/1')
+      axios.post('https://p77rg9n9za.execute-api.us-west-2.amazonaws.com/stage1/control?id=1')
          .then(res => {
             console.log("API CALL - SUCCESS: led trigger")
          })
