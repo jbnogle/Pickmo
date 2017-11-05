@@ -1,3 +1,9 @@
 language: node_js
 node_js:
-  - "stable"
+   - "stable"
+cache:
+   - "node_modules"
+before_script:
+   - cd frontend
+script:
+   - npm run build
