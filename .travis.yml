@@ -14,3 +14,5 @@ deploy:
   access_key_id: "AKIAJPHDNQLWGCW7K5OA"
   secret_access_key: "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"
   bucket: "pickmo"
+  on:
+    branch: master
