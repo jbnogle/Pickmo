@@ -13,7 +13,7 @@ before_script:
 script:
    - npm install
    - npm run build
-   - node_modules/.bin/newman run ../tests/Pickmo.postman_collection.json
+   - ../node_modules/.bin/newman run ../tests/Pickmo.postman_collection.json
 deploy:
   provider: s3
   access_key_id: "AKIAJPHDNQLWGCW7K5OA"
