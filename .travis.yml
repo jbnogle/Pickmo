@@ -4,7 +4,7 @@ node_js:
 cache:
    - "node_modules"
 install:
-   - npm install npm
+   - npm install newman
 before_script:
    - node --version
    - npm --version
