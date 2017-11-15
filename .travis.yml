@@ -1,10 +1,13 @@
 language: node_js
 node_js:
    - "stable"
+python:
+  - "2.7"
 cache:
    - "node_modules"
 install:
    - npm install newman
+   - pip install boto3
 before_script:
    - node --version
    - npm --version
@@ -14,6 +17,7 @@ script:
    - npm install
    - npm run build
    - ../node_modules/.bin/newman run ../tests/Pickmo.postman_collection.json
+   - python ../tests/LambdaTestScript.py
 deploy:
   provider: s3
   access_key_id: "AKIAJPHDNQLWGCW7K5OA"
@@ -21,3 +25,5 @@ deploy:
   bucket: "pickmo"
   on:
     branch: master
+
+language: python
