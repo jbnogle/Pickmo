@@ -1,23 +1,29 @@
 language: node_js
 node_js:
-   - "stable"
+- stable
+python:
+- stable
 cache:
-   - "node_modules"
+- node_modules
 install:
-   - npm install newman
+- npm install newman
+- sudo pip install boto3
 before_script:
-   - node --version
-   - npm --version
-   - node_modules/.bin/newman --version
-   - cd frontend
+- node --version
+- npm --version
+- node_modules/.bin/newman --version
+- cd frontend
 script:
-   - npm install
-   - npm run build
-   - ../node_modules/.bin/newman run ../tests/Pickmo.postman_collection.json
+- npm install
+- npm run build
+- "../node_modules/.bin/newman run ../tests/Pickmo.postman_collection.json"
+- python ../tests/LambdaTestScript.py
 deploy:
   provider: s3
-  access_key_id: "AKIAJPHDNQLWGCW7K5OA"
-  secret_access_key: "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"
-  bucket: "pickmo"
+  access_key_id: AKIAJPHDNQLWGCW7K5OA
+  secret_access_key: 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
+  bucket: pickmo
   on:
     branch: master
+dd:
+  secure: jBi60MeqZHGUJe3Ps8DlWATaJlREHzIUvNNKxrh4AuQJxXV8Bj2jLLxYhZsxtBtcJLy8HiNAaP6shIQocgQs2NB/dPom7FmUd/IM4V8ykyZzC+giN3ntvASJW9QKuFp3Le5u8RWDFR69KKc6A2+OUi4ndHOB/jntD2YiajcAOyg5Em54bdCA8mJld0Pbsq5LBGiCqgvrv1fFSYS3XsxQG40hyK7ilzgj63ljkR4tSt/Kodsja2qOst57RbEP4nL5QRVD9W2jI4kvdBAffgMu4tKkkYD9dS/STAMOucEO3RTnDu9n/j/Y0A5C15eMq05nVwfYIm5YJZmarZFVqMxIRAnXEk9CRaPnpuNu2wnYE9ChQD2WeYGXccUlyyU5XmY+W2Ufy4Q7PYnukaTqsO9XuG0GFfCXIWEu5WWCIl/pKURcztxwG6+A+9MHCq5hSI4v3+NEGCw2vvzTUJTG1g44F67sbzdHHQlqCCQr37QAa6IEomxJKl+Yu1acGST7LkA0nKeWvvPmbSVrsB6JL7HR03FKs08+E8un3TpdGq8JIDAT657MfhnFLHfJtI40Wph2gp4GcHMTzLqfJAoIlpuTwdDM6/evNZbUAY0w0hs+fq/a781LJC1p69BlWwL9yNMBXQTK5b0NMOmWAPOMQIt3uY7mFTxq4T7U1MnztteZLrU=
