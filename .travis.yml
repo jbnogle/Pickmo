@@ -17,6 +17,9 @@ script:
 - npm install
 - npm run build
 - "../node_modules/.bin/newman run ../tests/Pickmo.postman_collection.json"
+- sudo apt-get install python-pip python-dev build-essential 
+- sudo pip install --upgrade pip 
+- sudo pip install --upgrade virtualenv 
 - python ../tests/LambdaTestScript.py
 deploy:
   provider: s3
