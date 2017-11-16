@@ -5,8 +5,8 @@ class TestLambda(unittest.TestCase):
 
     def testPerformControl(self):
         client = boto3.client('lambda', region_name='us-west-2',
-            aws_access_key_id='AKIAJNEFR4MZ7Q2TERIQ',
-            aws_secret_access_key='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'
+            aws_access_key_id='*',
+            aws_secret_access_key='*'
         )
 
         response = client.invoke(
